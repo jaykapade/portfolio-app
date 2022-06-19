@@ -4,6 +4,7 @@ import { images } from "../../constants";
 
 import "./About.scss";
 import { client, urlFor } from "../../client";
+import { AppWrap } from "../../wrapper";
 const About = () => {
   const [abouts, setAbouts] = useState([]);
 
@@ -13,7 +14,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="app__container" style={{ paddingTop: "4rem" }}>
+    <>
       <h2 className="head-text">
         I Know that <span>Good Development</span> means{" "}
         <span>Good Business</span>
@@ -37,8 +38,8 @@ const About = () => {
           </motion.div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
-export default About;
+export default AppWrap(About);
