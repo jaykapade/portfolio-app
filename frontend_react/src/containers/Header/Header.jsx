@@ -61,4 +61,4 @@ const Header = () => {
   );
 };
 
-export default AppWrap(Header);
+export default AppWrap(Header, "app__flex");

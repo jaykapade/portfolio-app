@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { animate, motion } from "framer-motion";
 
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
 import "./Works.scss";
-import { useState } from "react";
-import { useEffect } from "react";
 import { client, urlFor } from "../../client";
 
 const Works = () => {
@@ -101,7 +99,7 @@ const Works = () => {
                 {work.description}
               </p>
               <div className="app__flex app__work-tag-container">
-                {work.tags.map((tag, index) => (
+                {work?.tags?.map((tag, index) => (
                   <div className="app__work-tag" key={index}>
                     <p className="p-text">{tag}</p>
                   </div>
@@ -115,4 +113,4 @@ const Works = () => {
   );
 };
 
-export default AppWrap(Works);
+export default AppWrap(MotionWrap(Works, "app__works"));
