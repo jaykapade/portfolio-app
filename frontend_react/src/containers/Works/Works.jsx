@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
-import { animate, motion } from "framer-motion";
+import { BiNoEntry } from "react-icons/bi";
+import { motion } from "framer-motion";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import "./Works.scss";
@@ -88,7 +89,7 @@ const Works = () => {
                     transition={{ duration: 0.25 }}
                     className="app__flex"
                   >
-                    <AiFillGithub />
+                    {work.codeLink ? <AiFillGithub /> : <BiNoEntry />}
                   </motion.div>
                 </a>
               </motion.div>
