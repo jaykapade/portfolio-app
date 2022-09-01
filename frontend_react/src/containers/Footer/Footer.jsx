@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import { images } from "../../constants";
 import { AppWrap, MotionWrap } from "../../wrapper";
@@ -11,7 +12,6 @@ const Footer = () => {
     email: "",
     message: "",
   });
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const { name, email, message } = formData;
@@ -30,14 +30,21 @@ const Footer = () => {
       email,
       message,
     };
+    if (!name.length || !email.length || !message.length) {
+      toast.error("Need to submit all details");
+      return;
+    }
 
     client
       .create(contact)
       .then(() => {
+        toast.success("Message sent successfully");
         setLoading(false);
-        setIsFormSubmitted(true);
       })
-      .catch((err) => setLoading(false));
+      .catch((err) => {
+        toast.error("Something went wrong. Please try again");
+        setLoading(false);
+      });
   };
 
   return (
@@ -63,7 +70,7 @@ const Footer = () => {
           <input
             type="text"
             className="p-text"
-            placeholder="Your Name"
+            placeholder="Your Name*"
             name="name"
             value={name}
             onChange={handleChangeInput}
@@ -73,7 +80,7 @@ const Footer = () => {
           <input
             type="email"
             className="p-text"
-            placeholder="Your email"
+            placeholder="Your Email*"
             name="email"
             value={email}
             onChange={handleChangeInput}
@@ -82,7 +89,7 @@ const Footer = () => {
         <div>
           <textarea
             className="p-text"
-            placeholder="Your Message"
+            placeholder="Your Message*"
             name="message"
             value={message}
             onChange={handleChangeInput}
@@ -92,6 +99,7 @@ const Footer = () => {
           {loading ? "Sending..." : "Send Message"}
         </button>
       </div>
+      <Toaster />
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "./components";
+import { Navbar, SocialMedia } from "./components";
 
 import {
   About,
@@ -16,6 +16,7 @@ const App = () => {
   return (
     <div className="app">
       <Navbar />
+      <SocialMedia />
       <Header />
       <About />
       <Works />
