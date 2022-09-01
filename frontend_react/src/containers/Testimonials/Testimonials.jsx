@@ -26,7 +26,6 @@ const Testimonials = () => {
     setCurrentIndex(index);
   };
 
-  console.log(testimonials, currentIndex, brands, "test");
   const test = testimonials[currentIndex];
   return (
     <>

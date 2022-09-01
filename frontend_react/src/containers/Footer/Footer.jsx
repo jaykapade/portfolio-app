@@ -32,6 +32,7 @@ const Footer = () => {
     };
     if (!name.length || !email.length || !message.length) {
       toast.error("Need to submit all details");
+      setLoading(false);
       return;
     }
 
