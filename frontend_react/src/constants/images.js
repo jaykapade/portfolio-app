@@ -1,8 +1,5 @@
 import email from "../assets/email.png";
 import mobile from "../assets/mobile.png";
-import api from "../assets/api.png";
-import cpp from "../assets/cpp.png";
-import css from "../assets/css.png";
 import figma from "../assets/figma.png";
 import flutter from "../assets/flutter.png";
 import git from "../assets/git.png";
@@ -27,10 +24,6 @@ import profile from "../assets/profile.png";
 import circle from "../assets/circle.svg";
 import logo from "../assets/logo.gif";
 
-import adidas from "../assets/adidas.png";
-import amazon from "../assets/amazon.png";
-import asus from "../assets/asus.png";
-import bolt from "../assets/bolt.png";
 import nb from "../assets/nb.png";
 import skype from "../assets/skype.png";
 import spotify from "../assets/spotify.png";
@@ -38,9 +31,6 @@ import spotify from "../assets/spotify.png";
 export default {
   email,
   mobile,
-  api,
-  cpp,
-  css,
   figma,
   flutter,
   git,
@@ -62,10 +52,6 @@ export default {
   profile,
   circle,
   logo,
-  adidas,
-  amazon,
-  asus,
-  bolt,
   nb,
   skype,
   spotify,
