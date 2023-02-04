@@ -105,4 +105,8 @@ const Footer = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Footer, "app__footer"), "app__whitebg");
+export default AppWrap(
+  MotionWrap(Footer, "app__footer"),
+  "app__whitebg",
+  "contact"
+);

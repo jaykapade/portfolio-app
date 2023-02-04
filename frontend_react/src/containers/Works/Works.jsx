@@ -114,4 +114,4 @@ const Works = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Works, "app__works"));
+export default AppWrap(MotionWrap(Works, "app__works"), "", "work");

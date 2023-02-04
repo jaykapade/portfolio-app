@@ -17,6 +17,10 @@ const Skills = () => {
     });
     client.fetch(skillsQuery).then((data) => {
       setSkills(data);
+      console.log(
+        "🚀 ~ data",
+        data.sort((a, b) => (a.priority > b.priority ? 1 : -1))
+      );
     });
   }, []);
   return (
@@ -24,19 +28,24 @@ const Skills = () => {
       <h2 className="head-text">Skills & Experience</h2>
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills?.map((skill) => (
-            <motion.div
-              whileInView={{ opacity: [0, 1] }}
-              transition={{ duration: 0.5 }}
-              className="app__skills-item app__flex"
-              key={skill.name}
-            >
-              <div className="app__flex" style={{ background: skill.bgColor }}>
-                <img src={urlFor(skill.icon)} alt={skill.name} />
-              </div>
-              <p className="p-text">{skill.name}</p>
-            </motion.div>
-          ))}
+          {skills
+            ?.sort((a, b) => (a?.priority > b?.priority ? 1 : -1))
+            .map((skill) => (
+              <motion.div
+                whileInView={{ opacity: [0, 1] }}
+                transition={{ duration: 0.5 }}
+                className="app__skills-item app__flex"
+                key={skill.name}
+              >
+                <div
+                  className="app__flex"
+                  style={{ background: skill.bgColor }}
+                >
+                  <img src={urlFor(skill.icon)} alt={skill.name} />
+                </div>
+                <p className="p-text">{skill.name}</p>
+              </motion.div>
+            ))}
         </motion.div>
         <motion.div className="app__skills-exp">
           {experiences
@@ -82,4 +91,8 @@ const Skills = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Skills, "app__skills"), "app__whitebg");
+export default AppWrap(
+  MotionWrap(Skills, "app__skills"),
+  "app__whitebg",
+  "skills"
+);

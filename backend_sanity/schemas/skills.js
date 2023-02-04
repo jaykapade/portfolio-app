@@ -9,9 +9,9 @@ export default {
       type: "string",
     },
     {
-      name: "bgColor",
-      title: "BgColor",
-      type: "string",
+      name: "priority",
+      title: "Priority",
+      type: "number",
     },
     {
       name: "icon",
@@ -20,6 +20,11 @@ export default {
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: "bgColor",
+      title: "BgColor",
+      type: "string",
     },
   ],
 };
