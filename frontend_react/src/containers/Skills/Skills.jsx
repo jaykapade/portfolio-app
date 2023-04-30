@@ -17,10 +17,6 @@ const Skills = () => {
     });
     client.fetch(skillsQuery).then((data) => {
       setSkills(data);
-      console.log(
-        "🚀 ~ data",
-        data.sort((a, b) => (a.priority > b.priority ? 1 : -1))
-      );
     });
   }, []);
   return (
