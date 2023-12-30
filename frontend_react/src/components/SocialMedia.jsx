@@ -1,12 +1,12 @@
 import React from "react";
-import { SiInstagram, SiGmail, SiGithub } from "react-icons/si";
+import { SiInstagram, SiGithub } from "react-icons/si";
 import { ImProfile } from "react-icons/im";
 
 const SocialMedia = () => (
   <div className="app__social">
     <div>
       <a
-        href="https://resume.io/r/5cTDB7aYh"
+        href="https://drive.google.com/file/d/1-_6ISEGLOIZQgAJyGsS9aEhdn5mJZdpu/view?usp=sharing"
         target="_blank"
         rel="noreferrer"
         title="Resume"
@@ -22,11 +22,6 @@ const SocialMedia = () => (
         title="Github"
       >
         <SiGithub />
-      </a>
-    </div>
-    <div>
-      <a href="mailto:jaykapade@gmail.com" title="Mail">
-        <SiGmail />
       </a>
     </div>
     <div>
