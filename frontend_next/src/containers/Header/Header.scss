@@ -1,3 +1,15 @@
+@keyframes wave {
+  0%   { transform: rotate(  0deg); }
+  10%  { transform: rotate(-14deg); }
+  20%  { transform: rotate( 14deg); }
+  30%  { transform: rotate(-10deg); }
+  40%  { transform: rotate( 10deg); }
+  50%  { transform: rotate( -6deg); }
+  60%  { transform: rotate(  6deg); }
+  70%  { transform: rotate(  0deg); }
+  100% { transform: rotate(  0deg); }
+}
+
 #home {
   position: relative;
   overflow: hidden;
@@ -47,9 +59,11 @@
   }
   @media screen and (max-width: 1200px) {
     flex-direction: column;
+    gap: 0;
   }
   @media screen and (max-width: 480px) {
     padding: 2rem 1rem 0;
+    gap: 1rem;
   }
 }
 
@@ -58,11 +72,15 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 100%;
 
   @media screen and (max-width: 2000px) {
     width: 100%;
     margin-right: 0rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    flex: unset;
+    height: auto;
   }
 }
 
@@ -94,7 +112,14 @@
       width: 100%;
       text-transform: uppercase;
       text-align: right;
-      line-height: 1.5rem;
+      line-height: 1.8;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 1.25rem;
+    }
+    @media screen and (max-width: 480px) {
+      margin-top: 0.75rem;
     }
   }
 
@@ -102,8 +127,32 @@
     font-size: 2.5rem;
   }
 
+  // Waving hand emoji
+  .wave-emoji {
+    display: inline-block;
+    font-size: 2.5rem;
+    transform-origin: 70% 70%;
+    animation: wave 2.2s ease-in-out infinite;
+    cursor: default;
+    user-select: none;
+  }
+
   @media screen and (min-width: 2000px) {
-    font-size: 5rem;
+    font-size: 1.75rem;
+
+    .badge-cmp,
+    .tag-cmp {
+      max-width: 600px;
+      padding: 1.5rem 2.5rem;
+    }
+
+    .tag-cmp p {
+      line-height: 2;
+    }
+
+    span {
+      font-size: 3.5rem;
+    }
   }
 
   @media screen and (max-width: 1200px) {
@@ -125,15 +174,25 @@
   align-items: center;
   position: relative;
 
+  @media screen and (max-width: 768px) {
+    height: auto;
+    flex: unset;
+  }
   img {
     object-fit: contain;
     z-index: 1;
     height: 25rem;
     width: 25rem;
     border-radius: 50%;
+    @media screen and (max-width: 768px) {
+      height: 18rem;
+      width: 18rem;
+      padding: 0.5rem 0;
+    }
     @media screen and (max-width: 480px) {
-      height: 21.875rem;
-      padding: 1rem 0;
+      height: 15rem;
+      width: 15rem;
+      padding: 0.5rem 0;
     }
   }
 }

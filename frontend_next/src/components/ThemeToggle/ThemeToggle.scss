@@ -24,6 +24,10 @@
     color: var(--white-color);
   }
 
+  .panel-header-actions & {
+    margin-left: 0;
+  }
+
   @media screen and (min-width: 2000px) {
     width: 3rem;
     height: 3rem;

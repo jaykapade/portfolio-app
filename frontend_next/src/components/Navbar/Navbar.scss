@@ -1,3 +1,5 @@
+// ─── Desktop Navbar ─────────────────────────────────────────────────────────
+
 .app__navbar {
   width: 100%;
   display: flex;
@@ -6,17 +8,19 @@
 
   padding: 1rem 2rem;
   background: var(--navbar-bg);
-  backdrop-filter: blur(0.25rem);
-  -webkit-backdrop-filter: blur(0.25rem);
-  border: 1px solid var(--navbar-border);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  border-bottom: 1px solid var(--navbar-border);
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   transition: background 0.3s ease, border-color 0.3s ease;
 
   @media screen and (max-width: 480px) {
-    padding: 0.5rem;
+    padding: 0.65rem 1rem;
   }
 }
+
+// ─── Logo ────────────────────────────────────────────────────────────────────
 
 .app__navbar-logo {
   display: flex;
@@ -32,6 +36,8 @@
     }
   }
 }
+
+// ─── Desktop Links ────────────────────────────────────────────────────────────
 
 .app__navbar-links {
   flex: 1;
@@ -52,24 +58,24 @@
       border-radius: 50%;
       margin-bottom: 0.3125rem;
     }
+
     a {
       color: var(--gray-color);
       text-decoration: none;
       flex-direction: column;
       text-transform: uppercase;
       font-weight: 500;
-
-      transition: all 0.3s ease-in-out;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease-in-out;
 
       &:hover {
         color: var(--secondary-color);
       }
     }
 
-    &:hover {
-      div {
-        background: var(--secondary-color);
-      }
+    &:hover div {
+      background: var(--secondary-color);
     }
 
     &:last-child {
@@ -77,107 +83,232 @@
       cursor: default;
     }
   }
+
   @media screen and (max-width: 900px) {
     display: none;
   }
 }
 
-.app__navbar-actions {
+// ─── Mobile Wrapper ───────────────────────────────────────────────────────────
+
+.app__navbar-mobile {
   display: none;
+  align-items: center;
+  gap: 0.75rem;
 
   @media screen and (max-width: 900px) {
     display: flex;
-    align-items: center;
-    margin-right: 0.75rem;
+  }
+}
 
-    .theme-toggle {
-      margin-left: 0;
+// ─── Animated Hamburger Button ────────────────────────────────────────────────
+
+.app__navbar-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.6rem;
+  background: var(--secondary-color);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  flex-shrink: 0;
+  z-index: 200;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--secondary-color) 80%, black);
+  }
+
+  .bar {
+    display: block;
+    width: 1.1rem;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 0.25s ease,
+      width 0.25s ease;
+    transform-origin: center;
+  }
+
+  // Open state: morph into X
+  &.is-open {
+    .bar--top {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .bar--mid {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .bar--bot {
+      transform: translateY(-7px) rotate(-45deg);
     }
   }
 }
 
-.app__navbar-menu {
-  width: 2.1875rem;
-  height: 2.1875rem;
-  border-radius: 50%;
-  position: relative;
+// ─── Backdrop ─────────────────────────────────────────────────────────────────
+
+.app__navbar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+// ─── Slide-in Panel ───────────────────────────────────────────────────────────
+
+.app__navbar-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 160;
+  width: min(80vw, 320px);
+  height: 100dvh;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--secondary-color);
+  flex-direction: column;
 
-  svg {
-    width: 70%;
-    height: 70%;
-    color: var(--white-color);
-  }
+  background: var(--white-color);
+  box-shadow: -0.5rem 0 2rem rgba(0, 0, 0, 0.18);
+  overflow: hidden;
 
-  div {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 5;
-    padding: 1rem;
-    width: 70%;
-    height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-
-    background-color: var(--white-color);
+  // Subtle texture for light theme
+  [data-theme="light"] & {
+    background-image: url("../../assets/bgWhite.png");
     background-size: cover;
     background-repeat: repeat;
+  }
+}
 
-    box-shadow: 0 0 1.25rem var(--menu-shadow);
+// ─── Panel Header ─────────────────────────────────────────────────────────────
 
-    svg {
-      width: 2.1875rem;
-      height: 2.1875rem;
-      color: var(--secondary-color);
-      margin: 0;
+.app__navbar-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1.25rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--navbar-border);
+
+  .panel-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  // Close X button inside panel
+  .panel-close {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: 1px solid var(--lightGray-color);
+    background: var(--white-color);
+    cursor: pointer;
+    position: relative;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background: var(--secondary-color);
+      border-color: var(--secondary-color);
+
+      .bar {
+        background: #fff;
+      }
     }
 
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
+    .bar {
+      position: absolute;
+      display: block;
+      width: 1rem;
+      height: 2px;
+      background: var(--gray-color);
+      border-radius: 2px;
+      transition: background 0.25s ease;
 
-      display: flex;
-      justify-items: flex-start;
-      align-items: flex-start;
-      flex-direction: column;
+      &--top {
+        transform: rotate(45deg);
+      }
 
-      li {
-        margin: 1rem;
-
-        a {
-          color: var(--gray-color);
-          text-decoration: none;
-          font-size: 1rem;
-          text-transform: uppercase;
-          font-weight: 500;
-
-          transition: all 0.3s ease-in-out;
-
-          &:hover {
-            color: var(--secondary-color);
-          }
-        }
+      &--bot {
+        transform: rotate(-45deg);
       }
     }
   }
+}
 
-  [data-theme="light"] & div {
-    background-image: url("../../assets/bgWhite.png");
+// ─── Panel Nav Links ──────────────────────────────────────────────────────────
+
+.app__navbar-panel-links {
+  list-style: none;
+  margin: 0;
+  padding: 1.5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  li {
+    a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 1.5rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--black-color);
+      border-left: 3px solid transparent;
+      transition: color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        padding-left 0.25s ease;
+
+      .link-number {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        opacity: 0.7;
+        letter-spacing: 0.04em;
+        min-width: 1.6rem;
+      }
+
+      &:hover {
+        color: var(--secondary-color);
+        background: color-mix(in srgb, var(--secondary-color) 8%, transparent);
+        border-left-color: var(--secondary-color);
+        padding-left: 2rem;
+      }
+    }
   }
+}
 
-  @media screen and (min-width: 900px) {
-    display: none;
+// ─── Panel Footer ─────────────────────────────────────────────────────────────
+
+.app__navbar-panel-footer {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--navbar-border);
+
+  p {
+    font-size: 0.7rem;
+    color: var(--gray-color);
+    text-align: center;
+    letter-spacing: 0.04em;
   }
 }
