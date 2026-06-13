@@ -1,0 +1,139 @@
+#home {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url("../../assets/bgIMG.png");
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    transition: background-image 0.3s ease;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &.app__wrapper {
+    padding: 0;
+
+    .copyright {
+      display: none;
+    }
+  }
+
+  [data-theme="dark"] & {
+    &::before {
+      background-image: url("../../assets/bgDark.png");
+    }
+  }
+}
+
+.app__header {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+
+  padding-top: 2rem;
+
+  @media screen and (min-width: 2000px) {
+    padding-top: 8rem;
+  }
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 2rem 1rem 0;
+  }
+}
+
+.app__header-info {
+  flex: 0.65;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+
+  @media screen and (max-width: 2000px) {
+    width: 100%;
+    margin-right: 0rem;
+  }
+}
+
+.app__header-badge {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+
+  .badge-cmp,
+  .tag-cmp {
+    padding: 1rem 2rem;
+    border: var(--white-color);
+    border-radius: 0.9375rem;
+    flex-direction: row;
+    width: auto;
+    font-weight: 600;
+    background: var(--badge-bg);
+    box-shadow: 0 0 1.25rem var(--shadow-sm);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .tag-cmp {
+    flex-direction: column;
+    margin-top: 3rem;
+
+    p {
+      width: 100%;
+      text-transform: uppercase;
+      text-align: right;
+      line-height: 1.5rem;
+    }
+  }
+
+  span {
+    font-size: 2.5rem;
+  }
+
+  @media screen and (min-width: 2000px) {
+    font-size: 5rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.app__header-img {
+  flex: 1;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  img {
+    object-fit: contain;
+    z-index: 1;
+    height: 25rem;
+    width: 25rem;
+    border-radius: 50%;
+    @media screen and (max-width: 480px) {
+      height: 21.875rem;
+      padding: 1rem 0;
+    }
+  }
+}
