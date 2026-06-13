@@ -2,6 +2,7 @@
 const nextConfig = {
   // Allow images from any remote source (for Sanity CDN image URLs)
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
