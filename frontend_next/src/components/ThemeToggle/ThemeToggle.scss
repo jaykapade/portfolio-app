@@ -1,0 +1,36 @@
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--lightGray-color);
+  background-color: var(--white-color);
+  color: var(--gray-color);
+  cursor: pointer;
+  margin-left: 1rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease-in-out;
+
+  svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  &:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+  }
+
+  @media screen and (min-width: 2000px) {
+    width: 3rem;
+    height: 3rem;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}

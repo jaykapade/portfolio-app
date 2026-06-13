@@ -1,0 +1,75 @@
+/* Global CSS — imported in app/layout.tsx */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+:root,
+[data-theme="light"] {
+  --font-base: "DM Sans", sans-serif;
+
+  --primary-color: #edf2f8;
+  --secondary-color: #313bac;
+  --black-color: #030303;
+  --lightGray-color: #e4e4e4;
+  --gray-color: #6b7688;
+  --brown-color: #46364a;
+  --white-color: #ffffff;
+  --inverse-text: #ffffff;
+
+  --card-pink: #fef4f5;
+  --card-blue: #f2f7fb;
+  --skill-bg: #edf2f8;
+  --navbar-bg: rgba(255, 255, 255, 0.25);
+  --navbar-border: rgba(255, 255, 255, 0.18);
+  --badge-bg: rgba(255, 255, 255, 0.8);
+  --dot-color: #cbcbcb;
+  --shadow-sm: rgba(0, 0, 0, 0.1);
+  --shadow-md: rgba(0, 0, 0, 0.2);
+  --tag-border: rgba(0, 0, 0, 0.3);
+  --success-bg: rgb(179, 229, 159);
+  --success-text: darkslategrey;
+  --btn-hover: #2430af;
+  --menu-shadow: rgba(168, 168, 168, 0.15);
+}
+
+[data-theme="dark"] {
+  --primary-color: #0f0f1a;
+  --secondary-color: #6b7cff;
+  --black-color: #f0f0f5;
+  --lightGray-color: #3a3a50;
+  --gray-color: #a0a8b8;
+  --brown-color: #c4b0c8;
+  --white-color: #1e1e30;
+  --inverse-text: #ffffff;
+
+  --card-pink: #2a2230;
+  --card-blue: #1e2838;
+  --skill-bg: #252538;
+  --navbar-bg: rgba(30, 30, 48, 0.8);
+  --navbar-border: rgba(255, 255, 255, 0.08);
+  --badge-bg: rgba(37, 37, 56, 0.92);
+  --dot-color: #4a4a60;
+  --shadow-sm: rgba(0, 0, 0, 0.45);
+  --shadow-md: rgba(0, 0, 0, 0.65);
+  --tag-border: rgba(255, 255, 255, 0.2);
+  --success-bg: rgb(40, 80, 50);
+  --success-text: #a8e6a0;
+  --btn-hover: #4a58e0;
+  --menu-shadow: rgba(0, 0, 0, 0.4);
+}
+
+html {
+  font-size: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  scroll-padding: 5rem;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
