@@ -134,6 +134,7 @@ const Navbar = () => {
               {/* Panel footer */}
               <div className="app__navbar-panel-footer">
                 <p>Jay Kapade &copy; {new Date().getFullYear()}</p>
+                <p style={{ marginTop: '5px', fontSize: '0.8rem', color: 'var(--gray-color)' }}>Made with ❤️ in India</p>
               </div>
             </motion.div>
           )}

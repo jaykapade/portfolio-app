@@ -34,7 +34,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>
+      <body cz-shortcut-listen="true">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

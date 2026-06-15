@@ -1,0 +1,29 @@
+.snake-cursor-canvas {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+}
+
+@media screen and (min-width: 1024px) {
+  body,
+  a,
+  button {
+    cursor: none !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .snake-cursor-canvas {
+    display: none !important;
+  }
+
+  body,
+  a,
+  button {
+    cursor: auto !important;
+  }
+}

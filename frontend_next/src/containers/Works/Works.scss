@@ -20,7 +20,7 @@
     background-color: var(--white-color);
     color: var(--black-color);
     font-weight: 800;
-    cursor: pointer;
+    cursor: none;
 
     transition: all 0.3s ease;
 
@@ -54,7 +54,7 @@
     padding: 1rem;
     border-radius: 1rem;
     background-color: var(--white-color);
-    cursor: pointer;
+    cursor: none;
     transition: all 0.3s ease;
 
     &:hover {
