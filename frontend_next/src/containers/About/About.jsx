@@ -21,10 +21,16 @@ const About = () => {
         <span>Personal Skills</span> and&nbsp;
         <span>Abilities</span>
       </h2>
-      <div className="app__profiles">
+      <motion.div 
+        className="app__profiles"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ staggerChildren: 0.15 }}
+      >
         {abouts.map((about, index) => (
           <motion.div
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "tween" }}
             className="app__profiles-item"
@@ -39,7 +45,7 @@ const About = () => {
             </p>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

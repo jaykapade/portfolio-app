@@ -29,6 +29,7 @@
     cursor: pointer;
     background-color: var(--card-pink);
     transition: all 0.3s ease-in-out;
+    text-decoration: none;
 
     img {
       width: 2.5rem;
@@ -36,8 +37,9 @@
       margin: 0 0.7rem;
     }
 
-    p {
+    p, span {
       font-weight: 500;
+      color: var(--secondary-color);
     }
     a {
       text-decoration: none;
@@ -75,7 +77,7 @@
 
     margin: 0.75rem 0;
     border-radius: 0.625rem;
-    cursor: pointer;
+    cursor: none;
     background-color: var(--primary-color);
 
     transition: all 0.3s ease-in-out;
@@ -115,7 +117,7 @@
     font-family: var(--font-base);
 
     transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-    cursor: pointer;
+    cursor: none;
 
     &:hover {
       background-color: var(--btn-hover);

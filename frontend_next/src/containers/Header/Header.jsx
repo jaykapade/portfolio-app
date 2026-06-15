@@ -34,7 +34,8 @@ const Header = () => {
       </motion.div>
       <motion.div
         whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 0.5, delayChildren: 0.5, y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
         className="app__header-img"
       >
         <Image src={images.profile} alt="profile-img" />

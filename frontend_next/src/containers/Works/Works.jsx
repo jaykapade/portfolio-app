@@ -65,7 +65,11 @@ const Works = () => {
       </div>
       <motion.div
         animate={animateCard}
-        transition={{ duration: 0.5, delayChildren: 0.25 }}
+        transition={{
+          duration: 0.5,
+          delayChildren: 0.25,
+          staggerChildren: 0.15,
+        }}
         className="app__work-portfolio"
       >
         {filterWork?.map((work, index) => (
